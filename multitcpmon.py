@@ -125,8 +125,10 @@ def connect(ip, port):
 
     except socket.timeout:
         status = "Timeout"
-
-
+    
+    except socket.gaierror as e:
+            status = "errorDNSresol"
+  
     except socket.error as e:
         if e.errno == errno.ECONNREFUSED:
             status = "Closed"
@@ -189,19 +191,22 @@ while True:
 
         for index2 in range(len(new_data)):
             host = new_data[index2][0]
-            ip = socket.gethostbyname(new_data[index2][0])
+            try:
+                ip = socket.gethostbyname(new_data[index2][0])
+            except socket.gaierror:
+                ip=""
             port = new_data[index2][1]
             description = new_data[index2][2]
             status = new_data[index2][3]
-            if (status == "Wait"):
+            if ((status == "Open") or (status == "Closed")):
                 #print connection status
-                print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKWARNING}{status}{bcolors.ENDC}')
+                print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKGREEN}{status}{bcolors.ENDC}')
             elif (status == "Timeout"):
                 #print connection status
                 print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.FAIL}{status}{bcolors.ENDC}')
             else:
                 #print connection status
-                print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKGREEN}{status}{bcolors.ENDC}')
+                print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKWARNING}{status}{bcolors.ENDC}')
                 
 
         print()
@@ -229,19 +234,22 @@ while True:
 
             for index2 in range(len(new_data)):
                 host = new_data[index2][0]
-                ip = socket.gethostbyname(new_data[index2][0])
+                try:
+                    ip = socket.gethostbyname(new_data[index2][0])
+                except socket.gaierror:
+                    ip=""
                 port = new_data[index2][1]
                 description = new_data[index2][2]
                 status = new_data[index2][3]
-                if (status == "Wait"):
+                if ((status == "Open") or (status == "Closed")):
                     #print connection status
-                    print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKWARNING}{status}{bcolors.ENDC}')
+                    print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKGREEN}{status}{bcolors.ENDC}')
                 elif (status == "Timeout"):
                     #print connection status
                     print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.FAIL}{status}{bcolors.ENDC}')
                 else:
                     #print connection status
-                    print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKGREEN}{status}{bcolors.ENDC}')
+                    print(f'{host}:{port} {ip} {bcolors.UNDERLINE}{description}{bcolors.ENDC} is {bcolors.OKWARNING}{status}{bcolors.ENDC}')
 
 
             print()
