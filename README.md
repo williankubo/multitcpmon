@@ -3,9 +3,11 @@
 Project to TCP Syn multiple IPs simultaneously
 
 
+
 Requirements:
 
 - Python 3.6
+ 
  
 
 Usage:
@@ -15,6 +17,8 @@ python3 multitcpmon.py [host/ip_list_file] [-tt title (optional)] [-rf refresh t
 ex. python3 multitcpmon.py host_list.txt
 
 ex. python3 multitcpmon.py host_list.txt -rf 10 -to 2
+
+
 
 
 File Template
