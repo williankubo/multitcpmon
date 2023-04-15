@@ -51,7 +51,7 @@ q = queue.Queue()
 
 
 # open source_file
-with open( 'arquivo.txt', 'r') as source_file:
+with open( ipfile, 'r') as source_file:
     # read lines from source_file
     lines = source_file.readlines()
     
