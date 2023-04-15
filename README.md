@@ -21,7 +21,7 @@ ex. python3 multitcpmon.py host_list.txt -rf 10 -to 2
 
 
 
-File Template
+File Template:
 
 host/ip,port,desc
 
