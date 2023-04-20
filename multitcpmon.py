@@ -1,6 +1,14 @@
-import argparse, socket, errno, threading, queue, time, sys, os
+import argparse
+import socket
+import errno
+import threading
+import queue
+import time
+import sys
+import os
 
 output_stream = sys.stdout
+
 
 #Initialize the parser
 parser = argparse.ArgumentParser(description='A TCP Monitor connect status.')
