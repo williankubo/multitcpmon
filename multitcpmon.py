@@ -9,9 +9,12 @@ import os
 
 output_stream = sys.stdout
 
+#https://github.com/williankubo/multitcpmon/blob/main/multitcpmon.py
+#https://raw.githubusercontent.com/williankubo/multitcpmon/main/multitcpmon.py
+
 
 #Initialize the parser
-parser = argparse.ArgumentParser(description='A TCP Monitor connect status.')
+parser = argparse.ArgumentParser(description='This is a TCP Monitor connect status. - by Kubo')
 parser.add_argument('File', help='file with host/ip,port,desc')
 parser.add_argument('-tt', help='title')
 parser.add_argument('-rf', help='refresh time (default 5s)')
