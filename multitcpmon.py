@@ -14,8 +14,9 @@ output_stream = sys.stdout
 
 
 #Initialize the parser
-parser = argparse.ArgumentParser(description='This is a TCP Monitor connect status. - by Kubo')
-parser.add_argument('File', help='file with host/ip,port,desc')
+parser = argparse.ArgumentParser(
+    description='Multi TCP Monitor - by Kubo (This is a TCP Monitor connect status.)')
+parser.add_argument('File', help='file with host/ip,port,description by line')
 parser.add_argument('-tt', help='title')
 parser.add_argument('-rf', help='refresh time (default 5s)')
 parser.add_argument('-to', help='timeout time (default 1s)')
